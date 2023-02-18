@@ -1,0 +1,328 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "World Bank API",
+    "description": "API for retieving information fromo world bank",
+    "version": "2"
+  },
+  "servers": [
+    {
+      "url": "http://api.worldbank.org"
+    }
+  ],
+  "paths": {
+    "/v2/country/{country}": {
+      "get": {
+        "description": "The following information will appear, when available, in the response when using this country query through the World Bank API:\n\n3 letter ISO 3166-1 alpha-3 code\n2 letter ISO 3166-1 alpha-2 code\nName\nRegion: ID, name and World Bank 2 letter code\nIncome Level: ID, name and World Bank 2 letter code\nLending Type: ID, name and World Bank 2 letter code\nCapital City\nLongitude\nLatitude",
+        "parameters": [
+          {
+            "name": "country",
+            "in": "path",
+            "description": "iso2code/iso3code of the country",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "usa"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json"
+              ]
+            },
+            "example": "json"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "information of a specific country"
+          }
+        },
+        "servers": [
+          {
+            "url": "http://api.worldbank.org"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "http://api.worldbank.org"
+        }
+      ]
+    },
+    "/v2/country": {
+      "get": {
+        "description": "The following information will appear, when available, in the response when using this country query through the World Bank API:\n\n3 letter ISO 3166-1 alpha-3 code\n2 letter ISO 3166-1 alpha-2 code\nName\nRegion: ID, name and World Bank 2 letter code\nIncome Level: ID, name and World Bank 2 letter code\nLending Type: ID, name and World Bank 2 letter code\nCapital City\nLongitude\nLatitude",
+        "parameters": [
+          {
+            "name": "lendingtype",
+            "in": "query",
+            "description": "lendingtype id",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ibd"
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "region id",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "afr"
+          },
+          {
+            "name": "incomelevel",
+            "in": "query",
+            "description": "income level code",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "UMC"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json"
+              ]
+            },
+            "example": "json"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "List of countries with the specified query"
+          }
+        },
+        "servers": [
+          {
+            "url": "http://api.worldbank.org"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "http://api.worldbank.org"
+        }
+      ]
+    },
+    "/v2/indicator/{indicator}": {
+      "get": {
+        "description": "Indicators represent data like total population, gross national income, energy use, and many more. Indicator queries return the following information in the response:\n  Code\n  Name\n  Unit\n  Source ID\n  Source Note\n  Source Organization\n  Topic ID\n  Topic Name\n  ",
+        "parameters": [
+          {
+            "name": "indicator",
+            "in": "path",
+            "description": "indicator id",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "NY.GDP.MKTP.CD"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json"
+              ]
+            },
+            "example": "json"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Indicators represent data like total population, gross national income, energy use, and many more. Indicator queries return the following information in the respons:\nCode\nName\nUnit\nSource ID\nSource Note\nSource Organization\nTopic ID\nTopic Name"
+          }
+        },
+        "servers": [
+          {
+            "url": "http://api.worldbank.org"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "http://api.worldbank.org"
+        }
+      ]
+    },
+    "/v2/incomelevel": {
+      "get": {
+        "description": "List of all Income Level code definitions",
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json"
+              ]
+            },
+            "example": "json"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "List of all Income Level code definitions"
+          }
+        },
+        "servers": [
+          {
+            "url": "http://api.worldbank.org"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "http://api.worldbank.org"
+        }
+      ]
+    },
+    "/v2/lendingtypes": {
+      "get": {
+        "description": "List of all Lending Type code definitions",
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json"
+              ]
+            },
+            "example": "json"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "List of all Lending Type code definitions"
+          }
+        },
+        "servers": [
+          {
+            "url": "http://api.worldbank.org"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "http://api.worldbank.org"
+        }
+      ]
+    },
+    "/v2/indicators": {
+      "get": {
+        "description": "List of all indicators code definitions",
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json"
+              ]
+            },
+            "example": "json"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "List of all indicator code definitions"
+          }
+        },
+        "servers": [
+          {
+            "url": "http://api.worldbank.org"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "http://api.worldbank.org"
+        }
+      ]
+    },
+    "/v2/region": {
+      "get": {
+        "description": "List of all region codes",
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json"
+              ]
+            },
+            "example": "json"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "List of all region code definitions"
+          }
+        },
+        "servers": [
+          {
+            "url": "http://api.worldbank.org"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "http://api.worldbank.org"
+        }
+      ]
+    }
+  },
+  "components": {}
+}
