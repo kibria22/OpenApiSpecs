@@ -1,0 +1,349 @@
+openapi: 3.0.0
+info:
+  title: Chess.com API
+  description: >-
+    This is a read-only REST API that responds with JSON-LD data.
+    See [announcement](https://www.chess.com/news/view/published-data-api) for
+    more information.
+  version: 1.0.0
+servers:
+  - url: https://api.chess.com/pub
+tags:
+  - name: Player
+    description: ''
+  - name: Club
+    description: ''
+  - name: Team match
+    description: ''
+  - name: Country
+    description: ''
+  - name: Daily Puzzle
+    description: ''
+  - name: Point System Config
+    description: ''
+paths:
+  /player/{username}:
+    get:
+      parameters:
+        - name: username
+          in: path 
+          required: true
+          schema:
+            type: string
+          example: erik
+      tags:
+        - Player
+      summary: Player Profile
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /player/{username}/stats:
+    get:
+      parameters:
+        - name: username
+          in: path 
+          required: true
+          schema:
+            type: string
+          example: erik
+      tags:
+        - Player
+      summary: Player Stats
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /player/{username}/games:
+    get:
+      parameters:
+        - name: username
+          in: path 
+          required: true
+          schema:
+            type: string
+          example: erik
+      tags:
+        - Player
+      summary: Player Games
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /player/{username}games/to-move:
+    get:
+      parameters:
+        - name: username
+          in: path 
+          required: true
+          schema:
+            type: string
+          example: erik
+      tags:
+        - Player
+      summary: Player Games to Move
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /player/{username}/games/archives:
+    get:
+      parameters:
+        - name: username
+          in: path 
+          required: true
+          schema:
+            type: string
+          example: erik
+      tags:
+        - Player
+      summary: Player Game Archives
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /player/{username}/games/2014/01:
+    get:
+      parameters:
+        - name: username
+          in: path 
+          required: true
+          schema:
+            type: string
+          example: erik
+      tags:
+        - Player
+      summary: Player Game Monthly Archive
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /player/{username}/games/{year}/{month}/pgn:
+    get:
+      parameters:
+        - name: username
+          in: path 
+          required: true
+          schema:
+            type: string
+          example: erik
+        - name: year
+          in: path 
+          required: true
+          schema:
+            type: integer
+          example: 2017
+        - name: month
+          in: path 
+          required: true
+          schema:
+            type: string
+          example: 01
+          description: Double digit representation of the month
+      tags:
+        - Player
+      summary: Player Game Archive PGN
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /player/{username}/clubs:
+    get:
+      parameters:
+        - name: username
+          in: path 
+          required: true
+          schema:
+            type: string
+          example: erik
+      tags:
+        - Player
+      summary: Player Clubs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /player/{username}/tournaments:
+    get:
+      parameters:
+        - name: username
+          in: path 
+          required: true
+          schema:
+            type: string
+          example: erik
+      tags:
+        - Player
+      summary: Player Tournaments
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /titled/GM:
+    get:
+      tags:
+        - Player
+      summary: Titled Players
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /club/{clubname}:
+    get:
+      parameters:
+        - name: clubname
+          in: path 
+          required: true
+          schema:
+            type: string
+          example:  pro-chess-league-late-qualifier
+      tags:
+        - Club
+      summary: Club Profile
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+          
+  /club/{clubname}/members:
+    get:
+      parameters:
+        - name: clubname
+          in: path 
+          required: true
+          schema:
+            type: string
+          example:  pro-chess-league-late-qualifier
+      tags:
+        - Club
+      summary: Club Members
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /match/{match_number}:
+    get:
+      parameters:
+        - name: match_number
+          in: path 
+          required: true
+          schema:
+            type: integer
+          example: 53
+      tags:
+        - Team match
+      summary: Team match information
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /match/{match_number}/{board_number}:
+    get:
+      parameters:
+        - name: match_number
+          in: path 
+          required: true
+          schema:
+            type: integer
+          example: 53
+        - name: board_number
+          in: path 
+          required: true
+          schema:
+            type: integer
+          example: 1
+      tags:
+        - Team match
+      summary: Team match board information
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /country/{country}:
+    get:
+      parameters:
+        - name: country
+          in: path 
+          required: true
+          schema:
+            type: string
+          description : isoalpha2 format of the country
+          example: DE
+      tags:
+        - Country
+      summary: Country
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /country/{country}/players:
+    get:
+      parameters:
+        - name: country
+          in: path 
+          required: true
+          schema:
+            type: string
+          description : isoalpha2 format of the country
+          example: DE
+      tags:
+        - Country
+      summary: Country Players
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /country/{country}/clubs:
+    get:
+      parameters:
+        - name: country
+          in: path 
+          required: true
+          schema:
+            type: string
+          description : isoalpha2 format of the country
+          example: DE
+      tags:
+        - Country
+      summary: Country Clubs
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /puzzle:
+    get:
+      tags:
+        - Daily Puzzle
+      summary: Daily Puzzle
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /point-system-config:
+    get:
+      tags:
+        - Point System Config
+      summary: Point System Config
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
