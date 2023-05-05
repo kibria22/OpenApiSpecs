@@ -1,16 +1,13 @@
 openapi: 3.0.0
 info:
   title: It's This For That
-  description: >-
-    This is a read-only REST API that responds with JSON data.
+  description: This is a read-only REST API that responds with JSON data.
   version: 1.0.0
 servers:
   - url: https://itsthisforthat.com
 tags:
   - name: Idea
-    description: 'Generate Random Stratup Ideas'
-
-
+    description: Generate Random Stratup Ideas
 paths:
   /api.php/:
     get:
@@ -23,7 +20,6 @@ paths:
             type: boolean
           required: true
           example: true
-          
       tags:
         - Idea
       summary: Generate Random Stratup Ideas
@@ -31,16 +27,13 @@ paths:
         '200':
           description: Successful response
           content:
-            application/json: 
+            application/json:
               schema:
-                  type: object
-                  properties:
-                    this:
-                      type: string
-                      description: Idea
-                    that:
-                      type: string
-                      description: Use Case
-                  
-              
-
+                type: object
+                properties:
+                  this:
+                    type: string
+                    description: Start Up Idea
+                  that:
+                    type: string
+                    description: Target Customers
